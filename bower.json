@@ -9,11 +9,13 @@
     "platinum-elements": "PolymerElements/platinum-elements#^1.1.0",
     "polymer": "Polymer/polymer#^1.2.0",
     "paper-menu": "PolymerElements/paper-menu#4fecb43601",
-    "hi9-login": "Hi9Here/hi9-login"
+    "hi9-login": "Hi9Here/hi9-login",
+    "rule-test": "marcus7777/rule-test#master"
   },
   "devDependencies": {},
   "ignore": [],
   "resolutions": {
-    "paper-menu": "4fecb43601"
+    "paper-menu": "4fecb43601",
+    "iron-ajax": "^1.0.0"
   }
 }
