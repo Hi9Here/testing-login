@@ -10,12 +10,14 @@
     "polymer": "Polymer/polymer#^1.2.0",
     "paper-menu": "PolymerElements/paper-menu#4fecb43601",
     "hi9-login": "Hi9Here/hi9-login",
-    "rule-test": "marcus7777/rule-test#master"
+    "rule-test": "marcus7777/rule-test#master",
+    "card-data": "Hi9Here/card-data"
   },
   "devDependencies": {},
   "ignore": [],
   "resolutions": {
     "paper-menu": "4fecb43601",
-    "iron-ajax": "^1.0.0"
+    "iron-ajax": "^1.0.0",
+    "firebase-element": "^1.0.0"
   }
 }

@@ -34,6 +34,16 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   // have resolved and content has been stamped to the page
   app.addEventListener('dom-change', function() {
     console.log('Our app is ready to rock!');
+    this.email = "marcus7777@gmail.com"
+    this.newCard = {}
+    this.remove = function(e) {
+      this.$.card.deleteCard(+e.target.title)
+    }
+    this.add = function() {
+      if (this.$.card.addCard(this.newCard)) {
+        this.set("newCard",{})
+      }
+    }
   });
 
   // See https://github.com/Polymer/polymer/issues/1381

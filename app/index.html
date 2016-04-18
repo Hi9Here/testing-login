@@ -100,10 +100,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           <span class="flex"></span>
 
           <!-- Toolbar buttons -->
-          <hi9-login location="https://hi9-admin.firebaseio.com/" login-text="login with google"></hi9-login>
           <paper-input value="{{email}}" type="email"></paper-input>
           <paper-input value="{{password}}" type="password"></paper-input>
-          <hi9-login location="https://hi9-admin.firebaseio.com/" login-text="login" provider="password" email="{{email}}" password="{{password}}"></hi9-login>
+          <hi9-login location="https://g1.firebaseio.com/" login-text="login" provider="password" email="{{email}}" password="{{password}}"></hi9-login>
 
           <!-- Application name -->
           <div class="middle middle-container center horizontal layout">
@@ -122,37 +121,46 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           <iron-pages attr-for-selected="data-route" selected="{{route}}">
 
             <section data-route="home">
+
+              <hi9-login location="https://g1.firebaseio.com/" user="{{user}}" login-text="login with google"></hi9-login>
               <paper-material elevation="1">
-                <rule-test></rule-test>
-
-                <p class="paper-font-subhead">You now have:</p>
-                <my-list></my-list>
-
-                <p class="paper-font-body2">Looking for more Web App layouts? Check out our <a href="https://github.com/PolymerElements/app-layout-templates">layouts</a> collection. You can also <a href="http://polymerelements.github.io/app-layout-templates/">preview</a> them live.</p>
+                <rule-test url="https://g1.firebaseio.com/users/google:100713082423959753395/.json?auth=" add="{{user.token}}" ></rule-test>
               </paper-material>
               <paper-material elevation="1">
-                <p class="paper-font-body2">This is another card.</p>
+                <rule-test url$="https://g1.firebaseio.com/users/{{user.uid}}/.json?auth=" add="{{user.token}}"></rule-test>
               </paper-material>
-
-              <paper-material elevation="1" class="paper-font-body2">
-                <h1 id="license">License</h1>
-                <p>Everything in this repo is BSD style license unless otherwise specified.</p>
-                <p>Copyright (c) 2015 The Polymer Authors. All rights reserved.</p>
-                <p>Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:</p>
-                <ul>
-                <li>Redistributions of source code must retain the above copyright
-                notice, this list of conditions and the following disclaimer.</li>
-                <li>Redistributions in binary form must reproduce the above
-                copyright notice, this list of conditions and the following disclaimer
-                in the documentation and/or other materials provided with the
-                distribution.</li>
-                <li>Neither the name of Google Inc. nor the names of its
-                contributors may be used to endorse or promote products derived from
-                this software without specific prior written permission.</li>
-                </ul>
-                <p>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
-              </paper-material>
-
+              <card-data id=card cards="{{cards}}" location$="https://g1.firebaseio.com/users/" user-id="{{user.uid}}" ></card-data>
+              <h1>Create card</h1>
+              <paper-input label="title" value="{{newCard.title}}"></paper-input><br>
+              <paper-input label="image" value="{{newCard.image}}"></paper-input><br>
+              <paper-input label="url" value="{{newCard.url}}"></paper-input><br>
+              <paper-input label="download" value="{{newCard.download}}"></paper-input><br>
+              <paper-input label="data" value="{{newCard.data}}"></paper-input><hr>
+              <paper-button on-tap="add">add</paper-button>
+              <h1>Read Cards</h1>
+              <template is="dom-repeat" items="{{cards}}" as="card">
+                title {{card.title}}<br>
+                image {{card.image}}<br>
+                url {{card.url}}<br>
+                download {{card.download}}<br>
+                data {{card.data}}
+                <hr>
+              </template>
+              <h1>Update Cards</h1>
+              <template is="dom-repeat" items="{{cards}}" as="card">
+                <paper-input label="title" value="{{card.title}}"></paper-input><br>
+                <paper-input label="image" value="{{card.image}}"></paper-input><br>
+                <paper-input label="url" value="{{card.url}}"></paper-input><br>
+                <paper-input label="download" value="{{card.download}}"></paper-input><br>
+                <paper-input label="data" value="{{card.data}}"></paper-input><hr>
+                <hr>
+              </template>
+              <h1>Delete Cards</h1>
+              <template is="dom-repeat" items="{{cards}}" as="card">
+                title {{card.title}}<br>
+                <paper-button on-tap="remove" title="{{index}}">remove</paper-button>
+                <hr>
+              </template>
             </section>
 
             <section data-route="users">
