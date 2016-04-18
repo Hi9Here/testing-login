@@ -34,14 +34,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   // have resolved and content has been stamped to the page
   app.addEventListener('dom-change', function() {
     console.log('Our app is ready to rock!');
-    this.email = "marcus7777@gmail.com"
-    this.newCard = {}
-    this.remove = function(e) {
-      this.$.card.deleteCard(+e.target.title)
+    app.email = "marcus7777@gmail.com"
+    app.newCard = {}
+    app.remove = function(e) {
+      app.$.card.deleteCard(+e.target.title)
     }
-    this.add = function() {
-      if (this.$.card.addCard(this.newCard)) {
-        this.set("newCard",{})
+    app.add = function() {
+      if (app.$.card.addCard(this.newCard)) {
+        app.set("newCard",{})
       }
     }
   });

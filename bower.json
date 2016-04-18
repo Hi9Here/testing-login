@@ -11,7 +11,8 @@
     "paper-menu": "PolymerElements/paper-menu#4fecb43601",
     "hi9-login": "Hi9Here/hi9-login",
     "rule-test": "marcus7777/rule-test#master",
-    "card-data": "Hi9Here/card-data"
+    "card-data": "Hi9Here/card-data",
+    "spinkit-element": "MeTaNoV/spinkit-element#^1.0.0"
   },
   "devDependencies": {},
   "ignore": [],
