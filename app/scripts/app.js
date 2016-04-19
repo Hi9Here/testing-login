@@ -40,7 +40,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       app.$.card.deleteCard(+e.target.title)
     }
     app.add = function() {
-      if (app.$.card.addCard(this.newCard)) {
+      if (app.$.card.addCard(app.newCard)) {
         app.set("newCard",{})
       }
     }

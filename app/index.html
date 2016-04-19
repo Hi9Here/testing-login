@@ -119,12 +119,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
               <hi9-login location="https://g1.firebaseio.com/" user="{{user}}" login-text="login with google"></hi9-login>
               <paper-material elevation="1">
-                <rule-test url="https://g1.firebaseio.com/users/google:100713082423959753395/.json?auth=" add="{{user.token}}" ></rule-test>
-              </paper-material>
-              <paper-material elevation="1">
                 <rule-test url$="https://g1.firebaseio.com/users/{{user.uid}}/.json?auth=" add="{{user.token}}"></rule-test>
               </paper-material>
-              <card-data id=card cards="{{cards}}" location$="https://g1.firebaseio.com/users/" user-id="{{user.uid}}" ></card-data>
+              <card-data id="card" cards="{{cards}}" location="https://g1.firebaseio.com/users/" user-id="{{user.uid}}" token="{{user.token}}"></card-data>
               <h1>Create card</h1>
               <paper-input label="title" value="{{newCard.title}}"></paper-input><br>
               <paper-input label="image" value="{{newCard.image}}"></paper-input><br>
