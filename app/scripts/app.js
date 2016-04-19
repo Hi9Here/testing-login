@@ -33,19 +33,18 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   // Listen for template bound event to know when bindings
   // have resolved and content has been stamped to the page
   app.addEventListener('dom-change', function() {
-    console.log('Our app is ready to rock!');
+  });
+
     app.email = "marcus7777@gmail.com"
     app.newCard = {}
     app.remove = function(e) {
-      app.$.card.deleteCard(+e.target.title)
+      this.$.card.deleteCard(+e.target.title)
     }
     app.add = function() {
-      if (app.$.card.addCard(app.newCard)) {
-        app.set("newCard",{})
+      if (this.$.card.addCard(app.newCard)) {
+        this.set("newCard",{})
       }
     }
-  });
-
   // See https://github.com/Polymer/polymer/issues/1381
   window.addEventListener('WebComponentsReady', function() {
     // imports are loaded and elements have been registered
